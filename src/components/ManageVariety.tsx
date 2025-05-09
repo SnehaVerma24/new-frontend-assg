@@ -35,13 +35,7 @@ const ManageVariety: React.FC = () => {
     healthRating: 0,
   });
 
-  useEffect(() => {
-  if (id) {
-    fetchVariety();
-  }
-}, [id]);
-
-const fetchVariety = useCallback(async () => {
+  const fetchVariety = useCallback(async () => {
   try {
     setLoading(true);
     const response = await axios.get(`/api/varieties/${id}`);
@@ -53,7 +47,12 @@ const fetchVariety = useCallback(async () => {
   }
 }, [id]);
 
-
+useEffect(() => {
+  if (id) {
+    fetchVariety();
+  }
+}, [id, fetchVariety]);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
