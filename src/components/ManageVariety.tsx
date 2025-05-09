@@ -35,12 +35,7 @@ const ManageVariety: React.FC = () => {
     healthRating: 0,
   });
 
-  useEffect(() => {
-    if (id) {
-      fetchVariety();
-    }
-  }, [id,fetchVariety]);
-
+ 
   const fetchVariety = async () => {
     try {
       setLoading(true);
@@ -52,6 +47,12 @@ const ManageVariety: React.FC = () => {
       setLoading(false);
     }
   };
+
+   useEffect(() => {
+    if (id) {
+      fetchVariety();
+    }
+  }, [id,fetchVariety]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
