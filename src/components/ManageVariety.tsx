@@ -36,18 +36,6 @@ const ManageVariety: React.FC = () => {
   });
 
   useEffect(() => {
-  const fetchVariety = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(`/api/varieties/${id}`);
-      setVariety(response.data);
-    } catch (err) {
-      setError('Failed to fetch variety details');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   if (id) {
     fetchVariety();
   }
