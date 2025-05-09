@@ -12,7 +12,6 @@ import {
   IconButton,
   InputAdornment,
   Divider,
-  useTheme,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -20,11 +19,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
-import { format, addDays } from 'date-fns';
 import { CropVariety } from '../types';
 
 const ManageVariety: React.FC = () => {
-  const theme = useTheme();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -42,7 +39,7 @@ const ManageVariety: React.FC = () => {
     if (id) {
       fetchVariety();
     }
-  }, [id]);
+  }, [id,fetchVariety]);
 
   const fetchVariety = async () => {
     try {
