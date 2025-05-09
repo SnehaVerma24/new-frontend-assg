@@ -30,7 +30,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CropVariety, FilterOptions } from '../types';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = process.env.REACT_APP_API_URL?.replace(/\/$/, '') || 'http://localhost:3001';
 
 const getCardColor = (healthRating: number) => {
   switch (healthRating) {
